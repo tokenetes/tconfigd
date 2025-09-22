@@ -110,7 +110,8 @@ func (wss *WebSocketServer) handleWebSocket(w http.ResponseWriter, r *http.Reque
 		return
 	}
 
-	serviceName := strings.TrimPrefix(spiffeID.Path(), "/")
+	pathParts := strings.Split(spiffeID.Path(), "/")
+	serviceName := pathParts[len(pathParts)-1]
 
 	namespace := r.URL.Query().Get("namespace")
 	if namespace == "" {
