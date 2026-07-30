@@ -21,7 +21,7 @@ linters:
     - unparam
     - unused
     - usestdlibvars
-    - wsl
+    - wsl_v5
   exclusions:
     paths:
       - ^tokenetescontroller/.*$
