@@ -1,11 +1,7 @@
-run:
-  skip-dirs:
-    - ^tokenetescontroller/.*$
-    - ^tokenetescontroller$
-    - tokenetescontroller
+version: "2"
 
 linters:
-  disable-all: true
+  default: none
   enable:
     - asciicheck
     - decorder
@@ -13,8 +9,7 @@ linters:
     - durationcheck
     - forcetypeassert
     - godot
-    - gofmt
-    - gosimple
+    - staticcheck
     - ineffassign
     - makezero
     - misspell
@@ -26,4 +21,18 @@ linters:
     - unparam
     - unused
     - usestdlibvars
-    - wsl
+    - wsl_v5
+  exclusions:
+    paths:
+      - ^tokenetescontroller/.*$
+      - ^tokenetescontroller$
+      - tokenetescontroller
+
+formatters:
+  enable:
+    - gofmt
+  exclusions:
+    paths:
+      - ^tokenetescontroller/.*$
+      - ^tokenetescontroller$
+      - tokenetescontroller

@@ -24,11 +24,12 @@ func CreatePodPatch(pod *corev1.Pod, injectInitContainer bool, agentHttpsApiPort
 	}
 
 	if mode, ok := pod.Annotations["tokenetes/agent-mode"]; ok {
-		if mode == AGENT_INTERCEPTION_MODE {
+		switch mode {
+		case AGENT_INTERCEPTION_MODE:
 			injectInitContainer = true
-		} else if mode == AGENT_DELEGATION_MODE {
+		case AGENT_DELEGATION_MODE:
 			injectInitContainer = false
-		} else {
+		default:
 			return nil, fmt.Errorf("invalid agent-mode %v specified", mode)
 		}
 	}

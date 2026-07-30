@@ -30,6 +30,7 @@ func main() {
 	if err := logging.InitLogger(); err != nil {
 		panic(err)
 	}
+
 	defer logging.Sync()
 
 	mainLogger := logging.GetLogger("main")
