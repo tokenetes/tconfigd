@@ -67,7 +67,6 @@ func (h *Handlers) InjectTokenetesAgent(w http.ResponseWriter, r *http.Request) 
 		}
 	} else {
 		patchOps, err := util.CreatePodPatch(&pod, h.enableTratInterception, h.agentHttpsApiPort, h.agentHttpApiPort, h.agentInterceptorPort, h.spireAgentHostDir, h.tconfigdSpiffeId)
-
 		if err != nil {
 			h.logger.Error("Could not create patch for pod", zap.Error(err))
 			admissionResponse.Result = &metav1.Status{
