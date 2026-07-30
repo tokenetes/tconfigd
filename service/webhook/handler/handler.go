@@ -75,7 +75,6 @@ func (h *Handlers) InjectTokenetesAgent(w http.ResponseWriter, r *http.Request) 
 			}
 		} else {
 			patchBytes, err := json.Marshal(patchOps)
-
 			if err != nil {
 				h.logger.Error("Failed to marshal patch operations", zap.Error(err))
 				admissionResponse.Result = &metav1.Status{

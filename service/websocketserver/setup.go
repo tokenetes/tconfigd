@@ -150,7 +150,6 @@ func (wss *WebSocketServer) handleWebSocket(w http.ResponseWriter, r *http.Reque
 			Status:  statusCode,
 			Payload: json.RawMessage(fmt.Sprintf(`{"error": "%s"}`, errorMsg)),
 		})
-
 		if err != nil {
 			wss.Logger.Error("Error marshaling error response", zap.Error(err))
 		} else {

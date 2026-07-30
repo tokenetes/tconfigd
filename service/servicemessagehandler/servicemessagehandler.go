@@ -49,7 +49,6 @@ func (smh *ServiceMessageHandler) sendMessage(ctx context.Context, serviceName s
 	for _, client := range clients {
 		if atomic.LoadInt64(&client.RuleVersionNumber) < versionNumber {
 			_, err := client.SendRequest(messageType, rule)
-
 			if err != nil {
 				dispatchErrors = append(dispatchErrors, err.Error())
 			}
